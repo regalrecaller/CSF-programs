@@ -22,8 +22,8 @@ public class lottery {
 		return num;
 	}
     
-    public static int randomInt(){
-    	int[] random = new int[5];
+    public static double randomInt(){
+    	double[] random = new double[5];
     	for(int x=0; x<5; x++){
     		random[x] += 1*Math.random();
     		if(random[x]>35){
@@ -40,6 +40,7 @@ public class lottery {
 		System.out.println("Welcome to the Fantasy 5 game.");
 		double[] guess = new double[5];
 		double[] aiguess = new double[5];	
+		int counter = 0;
 		for(int x=0; x>5; x++){
 			 guess[x] = getInt("Enter a number between 1 and 35: ", 
 					 "Your number musn't be negative.", 1, 35);
@@ -47,7 +48,16 @@ public class lottery {
 		for(int y=0; y>5; y++){
 			aiguess[y] = randomInt();
 		}
+		System.out.println("The computer's numbers were " +
+		aiguess[1] + aiguess[2] + aiguess[3] + aiguess[4] + aiguess[5]);
 		
+		for(double i=5; i<guess[i]; i++){
+			for(double k=5; k<aiguess[k]; k++){
+				if(guess[i]=aiguess[k]){
+					counter++;
+				}
+			}
+		}
+		System.out.println("You have " + counter + "matching number(s).");
 	}
-
 }
